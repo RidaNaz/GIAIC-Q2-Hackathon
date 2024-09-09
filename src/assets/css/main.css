@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-/* .share-link-sc, .download-btn-sc {
+.share-link-sc, .download-btn-sc {
     margin: 20px 0;
 }
 
@@ -9,20 +9,7 @@
     padding: 12px;
     margin-right: 20px;
     margin-bottom: 20px;
-} */
-
-/* button {
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
 }
-
-button:hover {
-    background-color: #0056b3;
-} */
 
 :root{
     --clr-blue: #1A91F0;

@@ -61,40 +61,44 @@ const fetchValues = (attrs: string[], ...nodeLists: HTMLInputElement[][]): Value
 };
 
 // Function to generate a unique URL for the resume
-// function generateUniqueURL(username: string): string {
-//     return `http://127.0.0.1:5500/resume.html/${username}`;
-// }
+function generateUniqueURL(username: string): string {
+    return `https://q2-hackathon.vercel.app/resume/${username}`;
+}
 
-// // Function to update the resume link based on form input
-// function updateResumeLink() {
-//     const firstNameInput = document.querySelector('.firstname') as HTMLInputElement;
-//     const middleNameInput = document.querySelector('.middlename') as HTMLInputElement;
-//     const lastNameInput = document.querySelector('.lastname') as HTMLInputElement;
+// Function to update the resume link based on the form input after CV creation
+function updateResumeLink() {
+    const firstNameInput = document.querySelector('.firstname') as HTMLInputElement;
+    const middleNameInput = document.querySelector('.middlename') as HTMLInputElement;
+    const lastNameInput = document.querySelector('.lastname') as HTMLInputElement;
 
-//     // Extract username from the form inputs
-//     const firstName = firstNameInput.value.trim();
-//     const middleName = middleNameInput.value.trim();
-//     const lastName = lastNameInput.value.trim();
+    // Extract username from the form inputs
+    const firstName = firstNameInput.value.trim();
+    const middleName = middleNameInput.value.trim();
+    const lastName = lastNameInput.value.trim();
 
-//     // Generate username (you can adjust how you want to form the username)
-//     const username = `${firstName}.${lastName}`.toLowerCase();
+    // Generate username
+    const username = `${firstName}.${lastName}`.toLowerCase();
 
-//     if (username) {
-//         const resumeLink = generateUniqueURL(username);
-//         const resumeLinkInput = document.querySelector('#resumeLink') as HTMLInputElement;
-//         resumeLinkInput.value = resumeLink;
-//     } else {
-//         alert('Please fill out your name fields.');
-//     }
-// }
+    if (username) {
+        const resumeLink = generateUniqueURL(username);
+        const resumeLinkInput = document.querySelector('#resumeLink') as HTMLInputElement;
+        resumeLinkInput.value = resumeLink;
 
+        // Display the URL section
+        const urlSection = document.querySelector('#urlSection') as HTMLElement;
+        urlSection.style.display = 'block';
+    } else {
+        alert('Please fill out your name fields.');
+    }
+}
 
-// function copyLink() {
-//     const resumeLink = (document.querySelector('#resumeLink') as HTMLInputElement);
-//     resumeLink.select();
-//     document.execCommand('copy');
-//     alert('Link copied to clipboard!');
-// }
+// Function to copy the generated resume link to the clipboard
+function copyLink() {
+    const resumeLink = document.querySelector('#resumeLink') as HTMLInputElement;
+    resumeLink.select();
+    document.execCommand('copy');
+    alert('Link copied to clipboard!');
+}
 
 const getUserInputs = () => {
     const achievementsTitleElem = Array.from(document.querySelectorAll('.achieve_title')) as HTMLInputElement[];
@@ -128,6 +132,9 @@ const getUserInputs = () => {
     emailElem.addEventListener('keyup', (e) => validateFormData(e.target as HTMLInputElement, validType.EMAIL, 'Email'));
     addressElem.addEventListener('keyup', (e) => validateFormData(e.target as HTMLInputElement, validType.ANY, 'Address'));
     designationElem.addEventListener('keyup', (e) => validateFormData(e.target as HTMLInputElement, validType.TEXT, 'Designation'));
+
+    document.querySelector('#generateResumeLinkBtn')?.addEventListener('click', updateResumeLink);
+    document.querySelector('#copyLinkBtn')?.addEventListener('click', copyLink);
 
     // document.querySelector('#generateResumeBtn')?.addEventListener('click', updateResumeLink);
     // document.querySelector('#copyLinkBtn')?.addEventListener('click', copyLink);
@@ -240,6 +247,10 @@ const generateCV = (): void => {
     const userData = getUserInputs();
     displayCV(userData);
     console.log(userData);
+
+    // After generating the CV, make the URL section visible
+    const urlSection = document.querySelector('#urlSection') as HTMLElement;
+    urlSection.style.display = 'block';
 };
 
 function previewImage(): void {

@@ -369,13 +369,19 @@
             </div>
         </section>
 
-        <!-- <section class="share-link-sc">
+        <section class="share-link-sc">
             <div class="container">
-                <h3>Your Resume Link:</h3>
-                <input type="text" id="resumeLink" readonly>
-                <button onclick="copyLink()" class = "print-btn btn btn-primary">Copy Link</button>
+
+                <div id="urlSection" style="display: none;">
+                    <h3>Your Resume Link:</h3>
+                    <button type="button" id="generateResumeLinkBtn" 
+                    class = "print-btn btn btn-primary"
+                    onclick="generateUniqueURL()">Generate Resume URL</button>
+                    <input type="text" id="resumeLink" readonly placeholder="Your resume link will appear here">
+                    <button type="button" id="copyLinkBtn" class = "print-btn btn btn-primary">Copy Link</button>
+                </div>
             </div>
-        </section> -->
+        </section>
 
         <section class = "print-btn-sc">
             <div class = "container">
