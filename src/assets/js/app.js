@@ -50,6 +50,35 @@ const fetchValues = (attrs, ...nodeLists) => {
     }
     return tempDataArr;
 };
+// Function to generate a unique URL for the resume
+// function generateUniqueURL(username: string): string {
+//     return `http://127.0.0.1:5500/resume.html/${username}`;
+// }
+// // Function to update the resume link based on form input
+// function updateResumeLink() {
+//     const firstNameInput = document.querySelector('.firstname') as HTMLInputElement;
+//     const middleNameInput = document.querySelector('.middlename') as HTMLInputElement;
+//     const lastNameInput = document.querySelector('.lastname') as HTMLInputElement;
+//     // Extract username from the form inputs
+//     const firstName = firstNameInput.value.trim();
+//     const middleName = middleNameInput.value.trim();
+//     const lastName = lastNameInput.value.trim();
+//     // Generate username (you can adjust how you want to form the username)
+//     const username = `${firstName}.${lastName}`.toLowerCase();
+//     if (username) {
+//         const resumeLink = generateUniqueURL(username);
+//         const resumeLinkInput = document.querySelector('#resumeLink') as HTMLInputElement;
+//         resumeLinkInput.value = resumeLink;
+//     } else {
+//         alert('Please fill out your name fields.');
+//     }
+// }
+// function copyLink() {
+//     const resumeLink = (document.querySelector('#resumeLink') as HTMLInputElement);
+//     resumeLink.select();
+//     document.execCommand('copy');
+//     alert('Link copied to clipboard!');
+// }
 const getUserInputs = () => {
     const achievementsTitleElem = Array.from(document.querySelectorAll('.achieve_title'));
     const achievementsDescriptionElem = Array.from(document.querySelectorAll('.achieve_description'));
@@ -77,6 +106,8 @@ const getUserInputs = () => {
     emailElem.addEventListener('keyup', (e) => validateFormData(e.target, validType.EMAIL, 'Email'));
     addressElem.addEventListener('keyup', (e) => validateFormData(e.target, validType.ANY, 'Address'));
     designationElem.addEventListener('keyup', (e) => validateFormData(e.target, validType.TEXT, 'Designation'));
+    // document.querySelector('#generateResumeBtn')?.addEventListener('click', updateResumeLink);
+    // document.querySelector('#copyLinkBtn')?.addEventListener('click', copyLink);
     achievementsTitleElem.forEach(item => item.addEventListener('keyup', (e) => validateFormData(e.target, validType.ANY, 'Title')));
     achievementsDescriptionElem.forEach(item => item.addEventListener('keyup', (e) => validateFormData(e.target, validType.ANY, 'Description')));
     expTitleElem.forEach(item => item.addEventListener('keyup', (e) => validateFormData(e.target, validType.ANY, 'Title')));
