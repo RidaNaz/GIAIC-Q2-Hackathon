@@ -114,8 +114,6 @@ const getUserInputs = () => {
     designationElem.addEventListener('keyup', (e) => validateFormData(e.target, validType.TEXT, 'Designation'));
     (_a = document.querySelector('#generateResumeLinkBtn')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', updateResumeLink);
     (_b = document.querySelector('#copyLinkBtn')) === null || _b === void 0 ? void 0 : _b.addEventListener('click', copyLink);
-    // document.querySelector('#generateResumeBtn')?.addEventListener('click', updateResumeLink);
-    // document.querySelector('#copyLinkBtn')?.addEventListener('click', copyLink);
     achievementsTitleElem.forEach(item => item.addEventListener('keyup', (e) => validateFormData(e.target, validType.ANY, 'Title')));
     achievementsDescriptionElem.forEach(item => item.addEventListener('keyup', (e) => validateFormData(e.target, validType.ANY, 'Description')));
     expTitleElem.forEach(item => item.addEventListener('keyup', (e) => validateFormData(e.target, validType.ANY, 'Title')));

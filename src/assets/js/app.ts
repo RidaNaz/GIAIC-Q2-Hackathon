@@ -136,9 +136,6 @@ const getUserInputs = () => {
     document.querySelector('#generateResumeLinkBtn')?.addEventListener('click', updateResumeLink);
     document.querySelector('#copyLinkBtn')?.addEventListener('click', copyLink);
 
-    // document.querySelector('#generateResumeBtn')?.addEventListener('click', updateResumeLink);
-    // document.querySelector('#copyLinkBtn')?.addEventListener('click', copyLink);
-
     achievementsTitleElem.forEach(item => item.addEventListener('keyup', (e) => validateFormData(e.target as HTMLInputElement, validType.ANY, 'Title')));
     achievementsDescriptionElem.forEach(item => item.addEventListener('keyup', (e) => validateFormData(e.target as HTMLInputElement, validType.ANY, 'Description')));
     expTitleElem.forEach(item => item.addEventListener('keyup', (e) => validateFormData(e.target as HTMLInputElement, validType.ANY, 'Title')));
